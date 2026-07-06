@@ -1,0 +1,17 @@
+name: Demo pipeline self-host
+
+on: workflow_dispatch
+
+jobs:
+  demo:
+    runs-on: [self-hosted , pwsh-sheghu]
+
+    steps:
+      - name: Clone code
+        uses: actions/checkout@v7
+
+      -name: Install dependency
+      run: npm install
+
+      -name: Run application
+      run: node server.js
